@@ -15,7 +15,22 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       continue-on-error: true
-    - name: Run the docker compose
-      run: docker-compose up --build
-    - name: dir command
-      run : dir
+    
+      
+    - name: Remove old container
+      run: |
+        if [ $(docker ps -a -q -f name=my_container) ]; then
+        docker rm -f my_container
+        fi
+      
+    - name: Remove old image
+      run: |
+        if [ $(docker images -q user/repository:latest) ]; then
+        docker rmi user/repository:latest
+        fi
+      
+    - name: Build Docker image
+      run: docker build -t user/repository:latest .
+
+    - name: Create and start new container
+      run: docker run -d --name my_container -p 8080:8080 user/repository:latest
