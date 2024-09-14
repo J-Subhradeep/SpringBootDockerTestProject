@@ -12,7 +12,7 @@ public class SpringBootDockerApplication {
 
 	@GetMapping("/get")
 	public String getMessage() {
-		return "Hello world 2";
+		return "Hello world";
 	}
 	
 	public static void main(String[] args) {
