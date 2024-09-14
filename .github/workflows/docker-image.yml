@@ -18,16 +18,12 @@ jobs:
     
       
     - name: Remove old container
-      run: |
-        if [ $(docker ps -a -q -f name=my_container) ]; then
-        docker rm -f my_container
-        fi
+      run: docker rm -f my_container
+      continue-on-error: true
       
     - name: Remove old image
-      run: |
-        if [ $(docker images -q my-app-spring:latest) ]; then
-        docker rmi my-app-spring:latest
-        fi
+      run: docker rmi my-app-spring:latest
+      continue-on-error: true
       
     - name: Build Docker image
       run: docker build -t my-app-spring:latest .
