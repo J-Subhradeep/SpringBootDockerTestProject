@@ -25,12 +25,12 @@ jobs:
       
     - name: Remove old image
       run: |
-        if [ $(docker images -q user/repository:latest) ]; then
-        docker rmi user/repository:latest
+        if [ $(docker images -q my-app-spring:latest) ]; then
+        docker rmi my-app-spring:latest
         fi
       
     - name: Build Docker image
-      run: docker build -t user/repository:latest .
+      run: docker build -t my-app-spring:latest .
 
     - name: Create and start new container
-      run: docker run -d --name my_container -p 8080:8080 user/repository:latest
+      run: docker run -d --name my_container -p 8080:8080 my-app-spring:latest
