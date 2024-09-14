@@ -12,7 +12,7 @@ public class SpringBootDockerApplication {
 
 	@GetMapping("/get")
 	public String getMessage() {
-		return "Hello world 2";
+		return "Hello world Done build with ci cd docker container";
 	}
 	
 	public static void main(String[] args) {
