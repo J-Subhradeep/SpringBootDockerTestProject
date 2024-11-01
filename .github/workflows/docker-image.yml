@@ -2,29 +2,26 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-
   build:
-
     runs-on: test-runner
 
     steps:
-    - uses: actions/checkout@v4
-      continue-on-error: true
-    
-      
-    - name: Docker componse up
-      run: docker-compose up -d --force-recreate --build --scale spring-app=3
-      continue-on-error: true
-      
+      - uses: actions/checkout@v4
+        continue-on-error: true
+
+      - name: Docker componse up
+        run: docker-compose up -d --force-recreate --build --scale spring-app=2
+        continue-on-error: true
+
     # - name: Remove old image
     #   run: docker rmi my-app-spring:latest
     #   continue-on-error: true
-      
+
     # - name: Build Docker image
     #   run: docker build -t my-app-spring:latest .
 
