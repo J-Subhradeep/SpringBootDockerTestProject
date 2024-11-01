@@ -15,7 +15,7 @@ jobs:
         continue-on-error: true
 
       - name: Docker componse up
-        run: docker ps
+        run: whoami
         continue-on-error: true
 
     # - name: Remove old image
