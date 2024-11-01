@@ -18,7 +18,7 @@ jobs:
     
       
     - name: Docker componse up
-      run: docker-compose up -d --build --scale spring-app=3
+      run: docker-compose up -d --force-recreate --build --scale spring-app=3
       continue-on-error: true
       
     # - name: Remove old image
