@@ -25,7 +25,7 @@ public class SpringBootDockerApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "Hello world Done build with ci cd docker-compose with nginx load balance, Request IP : "+clientIpAddress +"Server HOSTNAME : "+serverHostname;
+		return "Hello world Done build with ci cd docker-compose with nginx load balance, Request IP : "+clientIpAddress +", Server HOSTNAME : "+serverHostname;
 	}
 	
 	public static void main(String[] args) {
