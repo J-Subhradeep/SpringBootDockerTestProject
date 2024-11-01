@@ -13,13 +13,14 @@ jobs:
     runs-on: test-runner
 
     steps:
-      - uses: actions/checkout@v4
-        continue-on-error: true
-
-      - name: Docker componse up
-        run: docker ps 
-        continue-on-error: true
-
+    - uses: actions/checkout@v4
+      continue-on-error: true
+    
+      
+    - name: Docker componse up
+      run: docker-compose up -d --build --scale spring-app=3
+      continue-on-error: true
+      
     # - name: Remove old image
     #   run: docker rmi my-app-spring:latest
     #   continue-on-error: true
